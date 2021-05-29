@@ -1,0 +1,3 @@
+A ::= Adfdf | aA | Ba | Abb | C
+B ::= df | bela | Bela | ab
+C ::= Ac | bb | cv | CA
