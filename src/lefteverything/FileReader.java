@@ -2,7 +2,10 @@ package lefteverything;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class FileReader {
 
@@ -14,7 +17,6 @@ public class FileReader {
             while (scanner.hasNextLine()) {
                 String data = scanner.nextLine();
                 createRuleMap(grammar, data);
-                System.out.println(data);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -24,12 +26,12 @@ public class FileReader {
         return grammar;
     }
 
-    private void createRuleMap(Map<String, List<String>> map, String data){
+    private void createRuleMap(Map<String, List<String>> map, String data) {
         String[] tokens = data.split("::=");
         String leftPart = tokens[0].trim();
-        List<String> rightPart = List.of(tokens[1].trim().split(" \\| ")); //TODO: trim in a nicer way...
+        List<String> rightPart = List.of(tokens[1].trim().split(" \\| "));
 
-        map.put(leftPart,rightPart);
+        map.put(leftPart, rightPart);
     }
 
 }
